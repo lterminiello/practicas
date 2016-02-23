@@ -49,8 +49,11 @@ public class Usuario {
 		this.aniosExp = aniosExp;
 	}
 	
-	public double calcularSueldo(Empresa unaEmpresa){
+	public double sueldoEsperado(Empresa unaEmpresa){
 		return this.getCategoria().soueldoPromedio(unaEmpresa, this);
 	}
 	
+	public void escucharOferta(Empresa empres){
+		
+	}
 }
