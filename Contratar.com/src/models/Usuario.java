@@ -1,5 +1,7 @@
 package models;
 
+import java.util.ArrayList;
+
 import interfaces.Categoria;
 
 public class Usuario {
@@ -8,7 +10,7 @@ public class Usuario {
 	private double soueldo;
 	private Categoria categoria;
 	private int aniosExp;
-	
+	private ArrayList<Empresa> empresasTrabajo = new ArrayList<>();
 	
 	public Usuario(Empresa empresa, double soueldo, Categoria categoria, int aniosExp) {
 		super();
@@ -16,10 +18,11 @@ public class Usuario {
 		this.soueldo = soueldo;
 		this.categoria = categoria;
 		this.aniosExp = aniosExp;
+		this.empresasTrabajo.add(empresa);
 	}
-	public Usuario(double soueldo, int aniosExp) {
+	public Usuario(int aniosExp, Categoria categoria) {
 		super();
-		this.soueldo = soueldo;
+		this.categoria = categoria;
 		this.aniosExp = aniosExp;
 	}
 

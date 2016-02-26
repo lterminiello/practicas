@@ -1,7 +1,6 @@
 package model;
 
 import java.util.ArrayList;
-import abstracts.Client;
 
 public class Company extends Client {
 

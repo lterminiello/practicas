@@ -1,10 +1,6 @@
 package model;
 
-import abstracts.Client;
-import interfaces.StrategyPackages;
-import strategys.FixedStrategy;
-import strategys.StrategyClientMoney;
-import strategys.StrategyRoom;
+import interfa.StrategyPackages;
 
 public class Pack {
 
@@ -67,9 +63,6 @@ public class Pack {
 	}
 
 	public double calculatePrice(Client client) {
-		if (this.getBasePrice() == 0.0) {
-			this.setBasePrice(client.getMoney());
-		}
-		return this.getStrategy().calculatePrice(this.getBasePrice(), this.getTax());
+		return this.getStrategy().calculatePrice(this.getBasePrice(), this.getTax(), client);
 	}
 }

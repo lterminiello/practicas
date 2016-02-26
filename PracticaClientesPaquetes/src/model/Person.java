@@ -1,7 +1,5 @@
 package model;
 
-import abstracts.Client;
-
 public class Person extends Client {
 
 	private Pack bookedPackage;
