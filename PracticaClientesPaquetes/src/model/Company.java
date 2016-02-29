@@ -8,14 +8,14 @@ public class Company extends Client {
 		super(name, money);
 	}
 
-	public void buyPackages(ArrayList<Pack> packages) {
+	public void buyPackages(ArrayList<Pack> packages) throws ExceptionNotMoney {
 		for (Pack pack : packages) {
 			double packPrice = pack.calculatePrice(this);
 			if (this.getMoney() >= packPrice) {
 				this.setMoney(this.getMoney() - packPrice);
 				this.addPackagePurchased(pack);
 			} else {
-				System.out.println("Error el cliente no tiene dinero suficiente");
+				throw new ExceptionNotMoney("saldo insuficiente");
 			}
 		}
 

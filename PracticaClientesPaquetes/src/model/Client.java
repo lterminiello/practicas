@@ -43,13 +43,13 @@ public abstract class Client {
 		this.getPackagePurchaseds().add(pack);
 	}
 
-	public void buyPack(Pack pack) {
+	public void buyPack(Pack pack) throws ExceptionNotMoney {
 		double packPrice = pack.calculatePrice(this);
 		if (this.getMoney() >= packPrice) {
 			this.setMoney(this.getMoney() - packPrice);
 			this.addPackagePurchased(pack);
 		} else {
-			System.out.println("Error el cliente no tiene dinero suficiente");
+			throw new ExceptionNotMoney("saldo insuficiente");
 		}
 	}
 
