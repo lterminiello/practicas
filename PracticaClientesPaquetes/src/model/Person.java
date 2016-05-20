@@ -1,7 +1,11 @@
 package model;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class Person extends Client {
 
+	private static final Logger LOGGER = LoggerFactory.getLogger(Person.class);
 	private Pack bookedPackage;
 	private static double RESERVATION = 0.50;
 
@@ -18,7 +22,7 @@ public class Person extends Client {
 	}
 
 	public void bookedPackage(Pack pack) throws ExceptionNotMoney {
-		if (!this.getBookedPackage().equals(null)) {
+		if (this.bookedPackage == null) {
 			double packPrice = pack.calculatePrice(this) * RESERVATION;
 			if (this.getMoney() >= packPrice) {
 				pack.setRest(packPrice);
@@ -42,7 +46,7 @@ public class Person extends Client {
 				throw new ExceptionNotMoney("saldo insuficiente");
 			}
 		} else {
-			System.out.println("no existen reservas");
+			LOGGER.info("no existen reservas");
 		}
 	}
 
